@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
 let catBody = {
-    id: 16,
     name: "Chuha",
     gender: "female",
     colour: "black",
@@ -12,7 +11,7 @@ let catBody = {
 test(`add cat ${catBody}`, async ({
        request,
    }) => {
-    const postAPIResponse = await request.post("http://127.0.0.1:3000/cats", {
+    const postAPIResponse = await request.post("/cats", {
         data: catBody
     });
     console.log(await postAPIResponse.json());
